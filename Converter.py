@@ -17,6 +17,7 @@ def getTransactionsList(data):
 
       transactions.append(filter(None, transaction))
     transactions = filter(None, transactions)
+  transactions.sort(reverse=True)
   return transactions
 
 def stripHtml(entry):
