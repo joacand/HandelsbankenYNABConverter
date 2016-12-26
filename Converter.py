@@ -15,8 +15,8 @@ def getTransactionsList(data):
         if (es != ""):
           transaction.append(es)
 
-      transactions.append(filter(None, transaction))
-    transactions = filter(None, transactions)
+      transactions.append(list(filter(None, transaction)))
+    transactions = list(filter(None, transactions))
   transactions.sort(reverse=True)
   return transactions
 
@@ -38,7 +38,7 @@ def main():
   args = parseArgs()
   input = args.input
   output = args.output
-  print "Converting " + input + " to " + output + "\n"
+  print("Converting " + input + " to " + output + "\n")
   
   with open (input) as inputFile:
     data = inputFile.readlines()
@@ -57,8 +57,8 @@ def main():
         outputFile.write(",")
         outputFile.write(str(flow))
       outputFile.write("\n")
-      print "Added    "+str(t)
+      print("Added    "+str(t))
   
-  print "\nFinished converting "+input+"\nOutput file is "+output
+  print("\nFinished converting "+input+"\nOutput file is "+output)
 
 main()
